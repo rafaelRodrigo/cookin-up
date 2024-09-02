@@ -11,7 +11,7 @@ export default {
       categorias: [] as ICategoria[]
     }
   },
-  emits:['adicionarIngrediente','removeIngrediente'],
+  emits:['adicionarIngrediente','removeIngrediente','buscarReceitas'],
   async created(){
     this.categorias = await obterCategorias();
   }
@@ -38,7 +38,7 @@ export default {
       *Atenção: Consideramos que você tem em casa sal,primenta e água.
     </p>
 
-    <BotaoPrincipal texto="Buscar receitas" />
+    <BotaoPrincipal texto="Buscar receitas" @click="$emit('buscarReceitas')"/>
 
   </section>
 </template>
